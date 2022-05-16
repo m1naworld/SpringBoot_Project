@@ -25,7 +25,7 @@ public class MemoRepositoryTests {
     @Test
     public void testInsertDummies() {
         IntStream.rangeClosed(1, 100).forEach(i -> {
-            Memo memo = Memo.builder().momoText("Sample..." + i).build();
+            Memo memo = Memo.builder().memoText("Sample..." + i).build();
             memoRepository.save(memo);
         });
     }
@@ -43,5 +43,19 @@ public class MemoRepositoryTests {
             Memo memo = result.get();
             System.out.println(memo);
         }
+    }
+
+    @Test
+    public void testUpdate(){
+        Memo memo = Memo.builder().mno(100L).memoText("Update Text").build();
+
+        System.out.println(memoRepository.save(memo));
+    }
+
+    @Test
+    public void testDelete(){
+        Long mno = 100L;
+
+        memoRepository.deleteById(mno);
     }
 }
