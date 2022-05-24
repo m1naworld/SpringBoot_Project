@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Table(name="member")
 @ToString
 @Getter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Member {
@@ -21,10 +20,18 @@ public class Member {
     @Column(length = 200, nullable = false)
     private String name;
 
+
     @Column(length = 30, nullable = false)
-    private String id;
+    private String userId;
 
     @Column(length = 200, nullable = false)
     private String password;
+
+    @Builder
+    public Member(String name, String userId, String password){
+        this.name = name;
+        this.userId = userId;
+        this.password = password;
+    }
 
 }

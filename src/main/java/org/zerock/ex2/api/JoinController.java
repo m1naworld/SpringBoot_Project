@@ -10,20 +10,17 @@ import org.zerock.ex2.repository.MemberRepository;
 
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("api/join")
 public class JoinController {
 
-    MemberRepository memberRepository;
+    private MemberRepository memberRepository;
 
     @PostMapping({"","/"})
     public String join(@RequestBody Member member){
-//
-//        Optional<Member> result=memberRepository.findOne(member.id);
-//        if(member1 != null){
-//
-//        }
-//        member.ID
+        memberRepository.findByUserId(member.getUserId());
+
         return "가입 성공";
     }
 
