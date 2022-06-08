@@ -30,7 +30,8 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.5'
-    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.29'
 
 }
 
