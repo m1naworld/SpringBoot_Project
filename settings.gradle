@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 rootProject.name = 'ex2'
+=======
+rootProject.name = 'demo'
+>>>>>>> 79d9392 (Restful API 서버 만들기)

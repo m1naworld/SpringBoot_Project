@@ -1,11 +1,19 @@
 plugins {
+<<<<<<< HEAD
     id 'org.springframework.boot' version '2.6.7'
+=======
+    id 'org.springframework.boot' version '2.7.0'
+>>>>>>> 79d9392 (Restful API 서버 만들기)
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'war'
 }
 
+<<<<<<< HEAD
 group = 'org.zerock'
+=======
+group = 'com.example'
+>>>>>>> 79d9392 (Restful API 서버 만들기)
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -20,6 +28,7 @@ repositories {
 }
 
 dependencies {
+<<<<<<< HEAD
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.7'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.7'
     compileOnly 'org.projectlombok:lombok:1.18.24'
@@ -33,6 +42,13 @@ dependencies {
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
     runtimeOnly 'mysql:mysql-connector-java:8.0.29'
 
+=======
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:2.7.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
+>>>>>>> 79d9392 (Restful API 서버 만들기)
 }
 
 tasks.named('test') {
