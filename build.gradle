@@ -21,6 +21,8 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 //	testImplementation 'org.springframework.security:spring-security-test:5.7.1'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	runtimeOnly 'com.h2database:h2'
 }
 
 tasks.named('test') {
