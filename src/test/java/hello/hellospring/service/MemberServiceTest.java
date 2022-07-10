@@ -1,30 +1,30 @@
 package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
+import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
+@Transactional
+//test를 실행할 때 트렌잭션을 먼저 실행 하고 db에 데이터를 insert하고 test가 끝나면 rollback을 해줌!
+// 이를 통해 DB에 실제로 데이터가 반영되지 않아 반복적으로 테스트를 실행할 수 있음
+// 그래서 따로 @AfterEach를 통한 코드를 작성할 필요 없음.
 class MemberServiceTest {
 
-    MemberService memberService;
-    MemoryMemberRepository memberRepository;
+    // 생성자 인젝션이 좋은데 test는 그냥 필드 기반으로 하면 편함
+    @Autowired MemberService memberService;
+    @Autowired MemberRepository memberRepository;
 
-    @BeforeEach
-    public void beforeEach(){
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
-    }
-    @AfterEach // 각 메서드가 끝나면 실행되는 콜백 메서드
-    public void afterEach(){
-        memberRepository.clearStore();
-    }
-
-
+    // 원래는 test용 전용 db 따로 구축.
     @Test
     void join() {
         //given
@@ -66,11 +66,4 @@ class MemberServiceTest {
 
     }
 
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void findOne() {
-    }
 }

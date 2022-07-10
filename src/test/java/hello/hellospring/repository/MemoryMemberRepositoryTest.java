@@ -8,6 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
+// 자바 코드를 통한 테스트 = 단위테스트: 빠름. 통합테스트보다 단위테스트를 잘만드는게 좋음..?!
 public class MemoryMemberRepositoryTest {
 
     MemberRepository repository = new MemoryMemberRepository();
