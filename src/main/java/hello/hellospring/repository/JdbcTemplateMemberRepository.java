@@ -54,10 +54,10 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         return jdbcTemplate.query("select * from member", memberRowMapper());
     }
 
-    @Override
-    public void clearStore() {
-
-    }
+//    @Override
+//    public void clearStore() {
+//
+//    }
 
     // memberRowMapper를 통해 매핑함
     private RowMapper<Member> memberRowMapper(){

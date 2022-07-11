@@ -100,11 +100,11 @@ public class JdbcMemberRepository implements MemberRepository {
             close(conn, pstmt, rs);
         }
     }
-
-    @Override
-    public void clearStore() {
-
-    }
+//
+//    @Override
+//    public void clearStore() {
+//
+//    }
 
     @Override
     public Optional<Member> findByName(String name) {

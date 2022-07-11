@@ -12,11 +12,11 @@ import static org.assertj.core.api.Assertions.*;
 public class MemoryMemberRepositoryTest {
 
     MemberRepository repository = new MemoryMemberRepository();
-
-    @AfterEach // 각 메서드가 끝나면 실행되는 콜백 메서드
-    public void afterEach(){
-        repository.clearStore();
-    }
+//
+//    @AfterEach // 각 메서드가 끝나면 실행되는 콜백 메서드
+//    public void afterEach(){
+//        repository.clearStore();
+//    }
 
     @Test
     public void save() {
