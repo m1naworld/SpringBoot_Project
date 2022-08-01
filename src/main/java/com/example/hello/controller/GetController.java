@@ -58,7 +58,7 @@ public class GetController {
 
     // DTO 객체를 활용한 GET 메소드 구현
     @GetMapping(value = "/request3")
-    public String getRequestParam3(MemberDto memberDto){ // getRequestParam1에 비해 코드의 양을 줄일 수 있음 
+    public String getRequestParam3(MemberDto memberDto){ // getRequestParam1에 비해 코드의 양을 줄일 수 있음
 //        return memberDto.getName() + " " + memberDto.getEmail() + " " + memberDto.getOrganization();
         return memberDto.toString();
     }
