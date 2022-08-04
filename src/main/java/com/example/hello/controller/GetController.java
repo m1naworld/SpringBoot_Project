@@ -1,6 +1,9 @@
 package com.example.hello.controller;
 
 import com.example.hello.dto.MemberDto;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -37,11 +40,14 @@ public class GetController {
     // 키와 @RequestParam 뒤에 적는 이름을 동일하게 설정하기 어렵다면 위와 같이 value 요소로 매핑! @RequestParam("키값")
 
     //localhost:8080/api/v1/get-api/request1?name=value1&email=value2&organization=value3
+    @ApiOperation(value="GET 메서드 예제", notes = "@RequestParam을 활용한 GET Method")  // 대상 API의 설명을 작성하기 위한 어노테이션
     @GetMapping(value = "/request1")
     public String getRequestParam1(
-            @RequestParam String name,
-            @RequestParam String email,
-            @RequestParam String organization){
+            // @ApiParam: 매개변수에 대한 설명 및 설정을 위한 어노테이션.
+            // 메서드의 매개변수뿐 아니라 DTO 객체를 매개변수로 사용할 경우 DTO 클래스 내의 매개변수에도 정의할 수 있음
+            @ApiParam(value = "이름", required = true) @RequestParam String name,
+            @ApiParam(value = "이메일", required = true)@RequestParam String email,
+            @ApiParam(value = "회사", required = true) @RequestParam String organization){
         return name + " " + email + " " + organization;
     }
 
