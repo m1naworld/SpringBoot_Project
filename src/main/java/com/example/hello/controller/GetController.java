@@ -1,20 +1,25 @@
 package com.example.hello.controller;
 
 import com.example.hello.dto.MemberDto;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+
 
 @RestController
 @RequestMapping("/api/v1/get-api") // 공통 URL
 public class GetController {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(GetController.class);
+
     // http://localhost:8080/api/v1/get-api/hello
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String getHello(){
+        LOGGER.info("getHello 메서드가 호출되었습니다."); // 로그 출력
         return "Hello World";
     }
     // 요즘은 안쓰는 방식 @RequestMapping -> 요즘은 HTTP 메서드에 맞는 어노테이션 사용
@@ -25,6 +30,7 @@ public class GetController {
     @GetMapping(value = "/variable1/{variable}") // 중괄호를 이용해 어느 위치에서 값을 받을지 지정
     public String getVariable1(@PathVariable String variable){  //메서드의 매개변수와 그 값을 연결하기 위해 @PathVariable 명시,
         //*주의 @GetMapping 어노테이션과 @PathVariable에 지정된 변수의 이름을 동일하게 맞춰야 함
+        LOGGER.info("@PathVariable을 통해 들어온 값 : {}", variable); // 변수의 값을 로그로 출력
         return variable;
     }
 
